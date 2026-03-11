@@ -1,0 +1,25 @@
+{
+  "name": "orion-works-website",
+  "version": "1.0.0",
+  "description": "猎户座 Orion Works 官方网站 - 400万颗雅典娜卫星，开启算力无限时代",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": [
+    "Orion Works",
+    "猎户座",
+    "Dyson Sphere",
+    "母星戴森球",
+    "Space",
+    "Satellite",
+    "AI",
+    "Compute"
+  ],
+  "author": "Orion Works",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}

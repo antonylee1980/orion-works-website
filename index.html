@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猎户座 Orion Works - 开启星际时代 | The Future of Infinite Compute</title>
+    <meta name="description" content="400万颗雅典娜卫星，母星戴森球计划，开启算力无限时代。4 Million Athena Satellites, Dyson-Sphere Project.">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 加载动画 -->
+    <div class="loader">
+        <div class="loader-content">
+            <svg class="loader-logo" viewBox="0 0 100 100">
+                <circle cx="20" cy="50" r="3" fill="#FFD700"/>
+                <circle cx="50" cy="50" r="4" fill="#FFD700"/>
+                <circle cx="80" cy="50" r="3" fill="#FFD700"/>
+                <line x1="20" y1="50" x2="50" y2="50" stroke="#FFD700" stroke-width="1"/>
+                <line x1="50" y1="50" x2="80" y2="50" stroke="#FFD700" stroke-width="1"/>
+            </svg>
+            <div class="loader-text">
+                <span class="loader-cn">猎户座</span>
+                <span class="loader-en">ORION WORKS</span>
+            </div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 语言切换 -->
+    <div class="lang-switch">
+        <button class="lang-btn active" data-lang="zh">中</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+
+    <!-- 粒子背景 -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <svg class="logo-icon" viewBox="0 0 100 100">
+                    <circle cx="20" cy="50" r="3" fill="#FFD700"/>
+                    <circle cx="50" cy="50" r="4" fill="#FFD700"/>
+                    <circle cx="80" cy="50" r="3" fill="#FFD700"/>
+                    <line x1="20" y1="50" x2="50" y2="50" stroke="#FFD700" stroke-width="1" opacity="0.6"/>
+                    <line x1="50" y1="50" x2="80" y2="50" stroke="#FFD700" stroke-width="1" opacity="0.6"/>
+                    <circle cx="15" cy="30" r="2" fill="#87CEEB" opacity="0.8"/>
+                    <circle cx="85" cy="30" r="2" fill="#87CEEB" opacity="0.8"/>
+                    <ellipse cx="50" cy="50" rx="45" ry="35" fill="none" stroke="#4169E1" stroke-width="1" opacity="0.4"/>
+                </svg>
+                <div class="logo-text">
+                    <span class="logo-cn" data-i18n="logo_cn">猎户座</span>
+                    <span class="logo-en">ORION WORKS</span>
+                </div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link" data-i18n="nav_home">首页</a></li>
+                <li><a href="#mission" class="nav-link" data-i18n="nav_mission">使命</a></li>
+                <li><a href="#dyson" class="nav-link" data-i18n="nav_dyson">母星戴森球</a></li>
+                <li><a href="#tech" class="nav-link" data-i18n="nav_tech">技术</a></li>
+                <li><a href="#timeline" class="nav-link" data-i18n="nav_timeline">时间线</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav_about">关于</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-satellite"></i>
+                <span data-i18n="hero_badge">母星戴森球计划 · 2025年启航</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line" data-i18n="hero_title_1">400万颗雅典娜卫星</span>
+                <span class="title-line highlight" data-i18n="hero_title_2">环绕地球</span>
+                <span class="title-line" data-i18n="hero_title_3">开启算力无限时代</span>
+            </h1>
+            <p class="hero-subtitle" data-i18n="hero_subtitle">
+                从电子的迷雾到数据的曙光，人类在算力的枷锁中寻找出路
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="stat-num" data-target="4000000">0</span>
+                    <span class="stat-label" data-i18n="stat_satellites">颗卫星</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="stat-num" data-target="100">0</span>
+                    <span class="stat-label">%</span>
+                    <span class="stat-sublabel" data-i18n="stat_clean">清洁能源</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="stat-num" data-target="24">0</span>
+                    <span class="stat-label">/7</span>
+                    <span class="stat-sublabel" data-i18n="stat_hours">全天候</span>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#dyson" class="btn btn-primary">
+                    <span data-i18n="btn_explore">探索计划</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#mission" class="btn btn-secondary" data-i18n="btn_mission">我们的使命</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="earth-container">
+                <div class="earth"></div>
+                <div class="orbit orbit-1">
+                    <div class="satellite"></div>
+                </div>
+                <div class="orbit orbit-2">
+                    <div class="satellite"></div>
+                    <div class="satellite"></div>
+                </div>
+                <div class="orbit orbit-3">
+                    <div class="satellite"></div>
+                    <div class="satellite"></div>
+                    <div class="satellite"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span data-i18n="scroll_down">向下滚动</span>
+        </div>
+    </section>
+
+    <!-- 使命区域 -->
+    <section id="mission" class="mission">
+        <div class="container">
+            <h2 class="section-title" data-i18n="mission_title">我们的使命</h2>
+            <p class="section-subtitle" data-i18n="mission_subtitle">为人类文明开启新的篇章</p>
+            <div class="mission-grid">
+                <div class="mission-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="card-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 data-i18n="mission_1_title">降低太空成本</h3>
+                    <p data-i18n="mission_1_desc">通过可重复使用的猎户一号火箭，大幅降低太空发射成本，让太空探索变得触手可及。</p>
+                    <div class="card-hover">
+                        <span data-i18n="learn_more">了解更多</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                <div class="mission-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 data-i18n="mission_2_title">全球互联</h3>
+                    <p data-i18n="mission_2_desc">天链计划让全球每一个角落都能接入高速互联网，消除数字鸿沟。</p>
+                    <div class="card-hover">
+                        <span data-i18n="learn_more">了解更多</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                <div class="mission-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 data-i18n="mission_3_title">算力无限</h3>
+                    <p data-i18n="mission_3_desc">母星戴森球将提供无限的清洁能源和算力，为AI时代的到来铺平道路。</p>
+                    <div class="card-hover">
+                        <span data-i18n="learn_more">了解更多</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 母星戴森球 -->
+    <section id="dyson" class="dyson">
+        <div class="container">
+            <div class="dyson-header">
+                <h2 class="section-title" data-i18n="dyson_title">母星戴森球计划</h2>
+                <p class="section-subtitle" data-i18n="dyson_subtitle">环绕地球的超级计算机</p>
+            </div>
+            <div class="dyson-content">
+                <div class="dyson-visual">
+                    <div class="dyson-sphere">
+                        <div class="core"></div>
+                        <div class="ring ring-1"></div>
+                        <div class="ring ring-2"></div>
+                        <div class="ring ring-3"></div>
+                        <div class="satellites">
+                            <div class="sat" style="--i:0"></div>
+                            <div class="sat" style="--i:1"></div>
+                            <div class="sat" style="--i:2"></div>
+                            <div class="sat" style="--i:3"></div>
+                            <div class="sat" style="--i:4"></div>
+                            <div class="sat" style="--i:5"></div>
+                            <div class="sat" style="--i:6"></div>
+                            <div class="sat" style="--i:7"></div>
+                        </div>
+                    </div>
+                    <div class="dyson-label">
+                        <span class="label-num">4,000,000</span>
+                        <span class="label-text" data-i18n="athena_satellites">雅典娜卫星</span>
+                    </div>
+                </div>
+                <div class="dyson-features">
+                    <div class="feature-item" data-aos="fade-left">
+                        <div class="feature-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4 data-i18n="feature_1_title">无限清洁能源</h4>
+                            <p data-i18n="feature_1_desc">24小时无遮挡太阳能，取之不尽的恒星能量</p>
+                        </div>
+                    </div>
+                    <div class="feature-item" data-aos="fade-left" data-aos-delay="100">
+                        <div class="feature-icon">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4 data-i18n="feature_2_title">天然完美散热</h4>
+                            <p data-i18n="feature_2_desc">太空接近绝对零度，天然散热器</p>
+                        </div>
+                    </div>
+                    <div class="feature-item" data-aos="fade-left" data-aos-delay="200">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4 data-i18n="feature_3_title">无尘永恒环境</h4>
+                            <p data-i18n="feature_3_desc">无氧气无水分，硬件寿命延长数倍</p>
+                        </div>
+                    </div>
+                    <div class="feature-item" data-aos="fade-left" data-aos-delay="300">
+                        <div class="feature-icon">
+                            <i class="fas fa-broadcast-tower"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4 data-i18n="feature_4_title">全域高速传输</h4>
+                            <p data-i18n="feature_4_desc">激光通信网络，光速连接全球</p>
+                        </div>
+                    </div>
+                    <div class="feature-item" data-aos="fade-left" data-aos-delay="400">
+                        <div class="feature-icon">
+                            <i class="fas fa-unlock"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4 data-i18n="feature_5_title">超越文明边界</h4>
+                            <p data-i18n="feature_5_desc">独立于地球，摆脱一切束缚</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术展示 -->
+    <section id="tech" class="tech">
+        <div class="container">
+            <h2 class="section-title" data-i18n="tech_title">核心技术</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-visual">
+                        <div class="rocket-animation">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                    </div>
+                    <h3 data-i18n="tech_1_title">猎户一号火箭</h3>
+                    <p data-i18n="tech_1_desc">可重复使用轨道级火箭，降低发射成本90%</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-visual">
+                        <div class="satellite-animation">
+                            <i class="fas fa-satellite-dish"></i>
+                        </div>
+                    </div>
+                    <h3 data-i18n="tech_2_title">雅典娜卫星</h3>
+                    <p data-i18n="tech_2_desc">专用AI算力芯片，24小时太阳能供电</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-visual">
+                        <div class="laser-animation">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                    </div>
+                    <h3 data-i18n="tech_3_title">激光通信</h3>
+                    <p data-i18n="tech_3_desc">卫星间光速数据传输，延迟低于1ms</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 时间线 -->
+    <section id="timeline" class="timeline">
+        <div class="container">
+            <h2 class="section-title" data-i18n="timeline_title">发展历程</h2>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2002</span>
+                        <h4 data-i18n="timeline_1_title">猎户座创立</h4>
+                        <p data-i18n="timeline_1_desc">埃隆・斯特林创立猎户座，目标降低太空发射成本</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2008</span>
+                        <h4 data-i18n="timeline_2_title">猎户一号首飞</h4>
+                        <p data-i18n="timeline_2_desc">首次成功发射并回收轨道级火箭</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2015</span>
+                        <h4 data-i18n="timeline_3_title">天链计划启动</h4>
+                        <p data-i18n="timeline_3_desc">开始部署全球互联网卫星网络</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2024</span>
+                        <h4 data-i18n="timeline_4_title">母星戴森球计划</h4>
+                        <p data-i18n="timeline_4_desc">向ITU提交400万颗卫星发射申请</p>
+                    </div>
+                </div>
+                <div class="timeline-item active" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2025</span>
+                        <h4 data-i18n="timeline_5_title">准备启航</h4>
+                        <p data-i18n="timeline_5_desc">第一批试验卫星发射，开启新时代</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 创始人 -->
+    <section id="about" class="founder">
+        <div class="container">
+            <h2 class="section-title" data-i18n="founder_title">创始人</h2>
+            <div class="founder-content">
+                <div class="founder-image">
+                    <div class="image-frame">
+                        <div class="founder-avatar">
+                            <i class="fas fa-user-astronaut"></i>
+                        </div>
+                        <div class="image-glow"></div>
+                    </div>
+                </div>
+                <div class="founder-info">
+                    <h3>埃隆・斯特林</h3>
+                    <p class="founder-en">Elon Sterling</p>
+                    <p class="founder-role">CEO & Chief Engineer</p>
+                    <blockquote data-i18n="founder_quote">
+                        "人类必须成为多行星物种，否则文明终将灭亡。母星戴森球不只是为了人类，也是为了我们未来的伙伴——AI。"
+                    </blockquote>
+                    <p class="founder-bio" data-i18n="founder_bio">
+                        1971年出生于美国，宾夕法尼亚大学物理学和经济学双学位。2002年创立猎户座，致力于降低太空发射成本，让人类成为星际物种。2024年提出母星戴森球计划，旨在为AI时代提供无限算力基础设施。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA区域 -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-i18n="cta_title">加入我们的使命</h2>
+                <p data-i18n="cta_desc">一起建造母星戴森球，开启算力无限时代</p>
+                <a href="#" class="btn btn-cta" data-i18n="cta_button">了解更多</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-cn">猎户座</span>
+                        <span class="logo-en">ORION WORKS</span>
+                    </div>
+                    <p data-i18n="footer_desc">400万颗雅典娜卫星，开启算力无限时代</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer_links">快速链接</h4>
+                    <ul>
+                        <li><a href="#mission" data-i18n="nav_mission">使命</a></li>
+                        <li><a href="#dyson" data-i18n="nav_dyson">母星戴森球</a></li>
+                        <li><a href="#tech" data-i18n="nav_tech">技术</a></li>
+                        <li><a href="#about" data-i18n="nav_about">关于</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 data-i18n="footer_contact">联系我们</h4>
+                    <p>contact@orionworks.space</p>
+                    <p>California, USA</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 猎户座 Orion Works. <span data-i18n="footer_rights">保留所有权利</span>.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
