@@ -1,0 +1,228 @@
+/* 猎户座 Orion Works 官网样式 */
+
+:root {
+    --primary: #0a0a1a;
+    --secondary: #1a1a3e;
+    --accent: #FFD700;
+    --blue: #4169E1;
+    --text: #ffffff;
+    --text-gray: #b8b8b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    字体族: 'Noto Sans SC', 无衬线;
+    background: var(--primary);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* 导航栏 */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 10, 26, 0.95);
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-cn {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.logo-en {
+    font-size: 10px;
+    color: var(--text-gray);
+    letter-spacing: 2px;
+}
+
+/* 英雄区域 */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, #0c0c1d 0%, #1a1a3e 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(65, 105, 225, 0.1) 0%, transparent 50%);
+}
+
+.hero-content {
+    z-index: 10;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.title-line {
+    display: block;
+}
+
+.highlight {
+    color: var(--accent);
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    color: var(--text-gray);
+    margin-bottom: 40px;
+}
+
+.btn {
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin: 0 10px;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: var(--primary);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+}
+
+.btn-secondary {
+    border: 2px solid var(--text);
+    color: var(--text);
+}
+
+.btn-secondary:hover {
+    background: var(--text);
+    color: var(--primary);
+}
+
+/* 内容区域 */
+section {
+    padding: 100px 50px;
+}
+
+.section-title {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 60px;
+    color: var(--accent);
+}
+
+/* 使命卡片 */
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mission-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 15px;
+    文本对齐: 居中;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.mission-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 215, 0, 0.3);
+}
+
+.card-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.mission-card h3 {
+    color: var(--accent);
+    margin-bottom: 15px;
+}
+
+/* 页脚 */
+.footer {
+    background: #050510;
+    padding: 60px 50px 30px;
+    文本对齐: 居中;
+    border-top: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.footer-logo {
+    margin-bottom: 30px;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    颜色: 变量(--text-gray);
+    font-size: 24px;
+    边距: 0 15像素;
+    过渡: 颜色 0.3秒;
+}
+
+.social-links a:hover {
+    颜色: var(--accent);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 32px;
+    }
+    
+.任务网格{
+        网格模板列: 1fr;
+    }
+    
+    .navbar {
+        padding: 15px 20px;
+    }
+}
